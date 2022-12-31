@@ -1,0 +1,79 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30002.166
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiningRoom", "DiningRoom\DiningRoom.csproj", "{AF562D82-84F8-48BF-B6CE-0A5FB5CCA3BC}"
+	ProjectSection(ProjectDependencies) = postProject
+		{AC591B18-2F57-49D5-9535-F26BB12A24EE} = {AC591B18-2F57-49D5-9535-F26BB12A24EE}
+		{7A138130-5806-4C2B-82EF-A13E134A76D7} = {7A138130-5806-4C2B-82EF-A13E134A76D7}
+		{5B74D63E-C2D6-4E9B-BDC5-118A5A957D18} = {5B74D63E-C2D6-4E9B-BDC5-118A5A957D18}
+		{E60769E3-5C6C-4D54-A55D-F2EBD86BB67F} = {E60769E3-5C6C-4D54-A55D-F2EBD86BB67F}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiningRoom-Model", "DiningRoom\DiningRoomModel\DiningRoom-Model.csproj", "{7A138130-5806-4C2B-82EF-A13E134A76D7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiningRoom-Controller", "DiningRoom\DiningRoomController\DiningRoom-Controller.csproj", "{E60769E3-5C6C-4D54-A55D-F2EBD86BB67F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiningRoom-View", "DiningRoom\DiningRoomView\DiningRoom-View.csproj", "{5B74D63E-C2D6-4E9B-BDC5-118A5A957D18}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common-Model", "Common\CommonModel\Common-Model.csproj", "{AC591B18-2F57-49D5-9535-F26BB12A24EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiningRoom-Controller-Test", "DiningRoom\DiningRoomControllerTest\DiningRoom-Controller-Test.csproj", "{9F2881FD-6CB7-413A-817C-B4A007ECC008}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiningRoom-View-Test", "DiningRoom\DiningRoomViewTest\DiningRoom-View-Test.csproj", "{8CBE1055-92D7-4015-B40E-6537F0E65669}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiningRoom-Model-Test", "DiningRoom\DiningRoomModelTest\DiningRoom-Model-Test.csproj", "{2F1D658E-6F85-4F31-BB37-3F46FF4E060E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common-Model-Test", "Common\CommonModelTest\Common-Model-Test.csproj", "{97B34ABD-BD63-4B0A-B63B-A3769E44E35E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AF562D82-84F8-48BF-B6CE-0A5FB5CCA3BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF562D82-84F8-48BF-B6CE-0A5FB5CCA3BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF562D82-84F8-48BF-B6CE-0A5FB5CCA3BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF562D82-84F8-48BF-B6CE-0A5FB5CCA3BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A138130-5806-4C2B-82EF-A13E134A76D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A138130-5806-4C2B-82EF-A13E134A76D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A138130-5806-4C2B-82EF-A13E134A76D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A138130-5806-4C2B-82EF-A13E134A76D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E60769E3-5C6C-4D54-A55D-F2EBD86BB67F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E60769E3-5C6C-4D54-A55D-F2EBD86BB67F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E60769E3-5C6C-4D54-A55D-F2EBD86BB67F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E60769E3-5C6C-4D54-A55D-F2EBD86BB67F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B74D63E-C2D6-4E9B-BDC5-118A5A957D18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B74D63E-C2D6-4E9B-BDC5-118A5A957D18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B74D63E-C2D6-4E9B-BDC5-118A5A957D18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B74D63E-C2D6-4E9B-BDC5-118A5A957D18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC591B18-2F57-49D5-9535-F26BB12A24EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC591B18-2F57-49D5-9535-F26BB12A24EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC591B18-2F57-49D5-9535-F26BB12A24EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC591B18-2F57-49D5-9535-F26BB12A24EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F2881FD-6CB7-413A-817C-B4A007ECC008}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F2881FD-6CB7-413A-817C-B4A007ECC008}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F2881FD-6CB7-413A-817C-B4A007ECC008}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F2881FD-6CB7-413A-817C-B4A007ECC008}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8CBE1055-92D7-4015-B40E-6537F0E65669}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CBE1055-92D7-4015-B40E-6537F0E65669}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CBE1055-92D7-4015-B40E-6537F0E65669}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CBE1055-92D7-4015-B40E-6537F0E65669}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F1D658E-6F85-4F31-BB37-3F46FF4E060E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F1D658E-6F85-4F31-BB37-3F46FF4E060E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F1D658E-6F85-4F31-BB37-3F46FF4E060E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F1D658E-6F85-4F31-BB37-3F46FF4E060E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97B34ABD-BD63-4B0A-B63B-A3769E44E35E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97B34ABD-BD63-4B0A-B63B-A3769E44E35E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97B34ABD-BD63-4B0A-B63B-A3769E44E35E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97B34ABD-BD63-4B0A-B63B-A3769E44E35E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9F1BEDF4-04D0-49FA-928F-168AD5F316B7}
+	EndGlobalSection
+EndGlobal
