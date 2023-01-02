@@ -50,11 +50,10 @@ namespace DinnerSimulator.DiningRoom.Model
         private static Queue<Order> orderList = new Queue<Order>();
         private static List<Thread> orderThreads = new List<Thread>();
 
-        private static AutoResetEvent Are = new AutoResetEvent(false);
-        private static Mutex orderRecapMtx = new Mutex();
-
 
         public Queue<Order> OrderList { get => orderList; set => orderList = value; }
+
+        static bool stillordering = true; 
 
 
         public DiningRoomModel()
@@ -189,37 +188,24 @@ namespace DinnerSimulator.DiningRoom.Model
                     waiter += add;
                     CustomerGroup customerGroup = factory.CreateCustomers(factory.DefaultCustomersCountPerGroup);
                     customerQueue.Enqueue(customerGroup);
+                    Console.WriteLine("=============== " + i + "===============");
                     customerQueueMre.Set();
                 }
+                stillordering = false;
             });
             customerArrivalThread.Name = "Customers_arrival";
             customerArrivalThread.Start();
 
 
-            Thread customerOrderingThread = new Thread(CustomerHome);
-            customerOrderingThread.Name = "Customers_home";
+            Thread customerOrderingThread = new Thread(DiningRoomService);
+            customerOrderingThread.Name = "Dining_room_service";
             customerOrderingThread.Start();
 
+            Thread.Sleep(1000 * 5);
 
-            Thread customerOrderThread = new Thread(CustomersOrder);
-            customerOrderThread.Name = "Customers_order";
-            customerOrderThread.Start();
+            customerOrderingThread.Join();
 
-           
-            Thread.Sleep(1000 * 9);
-
-            // Thread to synchronize
-            
-            /*
-            Thread customerOrderingRecapThread = new Thread(()=> {
-
-                while (true)
-                {
-                    orderRecapMtx.WaitOne();
-                    if (CustomersFactory.MaxCustomersCount == costomerCount)
-                    {
-            */
-                        Console.WriteLine("========== " + OrderList.Count + " Commande(s) ont ete prise. ==========");
+            Console.WriteLine("========== " + OrderList.Count + " Commande(s) ont ete prise. ==========");
             
                         foreach (Order comm in OrderList.ToArray())
                         {
@@ -229,22 +215,14 @@ namespace DinnerSimulator.DiningRoom.Model
                             }
                             Console.WriteLine("---------- OrderLine end ----------");
                         }
-            /*
-                    }
-                    orderRecapMtx.ReleaseMutex();
-                }
 
-            });
-            
-            customerOrderingRecapThread.Name = " customerOrderingRecapThread";
-            customerOrderingRecapThread.Start();
-            */
+            Thread.Sleep(1000);
 
         }
 
-        private void CustomerHome()
+        private void DiningRoomService()
         {
-            while (true)
+            while (stillordering)
             {
                 customerQueueMtx.WaitOne();
                 if (customerQueue.Count != 0)
@@ -274,8 +252,13 @@ namespace DinnerSimulator.DiningRoom.Model
 
                             lineChief.Available = true;
 
+                            CustomersOrder(customers);
+
+
+
                             orderQueue.Enqueue(customers);
                         }
+
 
                     }
                     else
@@ -287,15 +270,9 @@ namespace DinnerSimulator.DiningRoom.Model
             }
         }
 
-        private void CustomersOrder()
+        private void CustomersOrder(CustomerGroup customers)
         {
-            while (true)
-            {
-                orderQueueMtx.WaitOne();
 
-                if(orderQueue.Count > 0)
-                {
-                    CustomerGroup customers = orderQueue.Dequeue();
                     customers.CustomerState = CustomerState.Ordering;
                     Console.WriteLine("=========Client n_" + costomerCount + " commande=======");
 
@@ -317,11 +294,10 @@ namespace DinnerSimulator.DiningRoom.Model
                     }));
 
                     orderThreads[orderThreads.Count - 1].Name = "Commande n_" + (orderThreads.Count - 1) + " du client n_" + (costomerCount + 1);
-                    orderThreads[orderThreads.Count - 1].Start();
-                }
-                orderQueueMtx.ReleaseMutex();
-                //Are.Set();
-            }
+                    
+                    Console.WriteLine("orderThreads.Count : " + orderThreads.Count);
+
+                    orderThreads[orderThreads.Count - 1].Start();           
         }
     }
 }
