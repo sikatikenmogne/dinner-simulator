@@ -6,10 +6,14 @@ using System.Threading.Tasks;
 
 namespace DinnerSimulator.DiningRoom.Model.Actors
 {
-    class Customer
+    public enum CustomerChoiceMenuEnum
     {
-        private CustomerChoiceMenuEnum choiceMenu;
-        private List<string> preferenceList;
-        private int presenceTime;
+        entry,
+        dish,
+        entryAndDish,
+        dishAndDessert,
+        all,
+        entryAndDessert,
+        dessert,
     }
 }

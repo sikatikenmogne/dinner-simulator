@@ -10,19 +10,15 @@ namespace DinnerSimulator.DiningRoom.Model.Elements
 {
     public class Line
     {
-        private List<Table> tables;
-        //private LineChief lineChief;
 
-        public List<Table> Tables { get => tables; set => tables = value; }
-        //public LineChief LineChief { get => lineChief; set => lineChief = value; }
+        public List<Table> Tables { get; set; }
         public Line(int nbTables, int nbSeatsPerTable)
         {
-            tables = new List<Table>();
+            Tables = new List<Table>();
             for (int i = 0; i < nbTables; i++)
             {
-                tables.Add(new Table(nbSeatsPerTable));
+                Tables.Add(new Table(nbSeatsPerTable));
             }
-            //    this.tables = new List<Table>();
         }
 
         public Line(int nbTables)
@@ -30,11 +26,11 @@ namespace DinnerSimulator.DiningRoom.Model.Elements
             Random rand = new Random();
 
             int nbSeatsPerTable = rand.Next(1, 6);
-            Console.WriteLine("Nomber of seat per tables : " + nbSeatsPerTable * 2);
-            tables = new List<Table>();
+            Console.WriteLine("Number of seat per tables : " + nbSeatsPerTable * 2);
+            Tables = new List<Table>();
             for (int i = 0; i < nbTables; i++)
             {
-                tables.Add(new Table(nbSeatsPerTable*2));
+                Tables.Add(new Table(nbSeatsPerTable*2));
             }
         }
     }

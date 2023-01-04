@@ -41,20 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Actors\CustomerController.cs" />
-    <Compile Include="Actors\HotelMasterController.cs" />
-    <Compile Include="Actors\LineChiefController.cs" />
-    <Compile Include="DiningRoomController.cs" />
-    <Compile Include="Factory\AbstractCustomersFactory.cs" />
-    <Compile Include="Factory\CustomersFactory.cs" />
-    <Compile Include="Observer\CFUnsubscriber.cs" />
-    <Compile Include="Observer\DRUnsubscriber.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Strategy\CoolStrategy.cs" />
-    <Compile Include="Strategy\ICustomer.cs" />
-    <Compile Include="Strategy\IOrderStrategy.cs" />
-    <Compile Include="Strategy\RandomOrderStrategy.cs" />
-    <Compile Include="Strategy\RushedStrategy.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Common\CommonModel\Common-Model.csproj">

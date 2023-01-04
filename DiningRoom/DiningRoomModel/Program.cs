@@ -21,9 +21,9 @@ namespace DiningRoom.DiningRoom.Model
             menu.Add("Dish", new List<Recipe>() { new Recipe(RecipeType.Dish, "Bouillinade anguilles ou poissons", 4, 345), new Recipe(RecipeType.Dish, "Boles de picoulats", 25, 560) });
             menu.Add("Dessert", new List<Recipe>() { new Recipe(RecipeType.Dessert, "Tiramisu", 4, 1200), new Recipe(RecipeType.Dessert, "Creme brule", 3, 450) });
 
-            DiningRoomModel diningRoomModel = new DiningRoomModel(nbSeatsPerTable: 6, menu: menu);
+            DiningRoomModel diningRoomModel = new DiningRoomModel(nbSeatsPerTable: 10, menu: menu);
             
-            diningRoomModel.Run(new CustomersFactory(5, 5, 0));
+            diningRoomModel.RunSimulation(new CustomersFactory(5, 0, 0));
         }
     }
 }

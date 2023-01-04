@@ -5,30 +5,19 @@ namespace DinnerSimulator.DiningRoom.Model.Elements
 {
     public class Square
     {
-        private List<Line> lines;
-        private List<Waiter> waiters;
-        public List<LineChief> lineChiefs;
+        
+        public List<Line> Lines { get; set; }
 
-        public List<Waiter> Waiters { get => waiters; set => waiters = value; }
-
-        public List<Line> Lines { get => lines; set => lines = value; }
-
-        public List<LineChief> LineChiefs { get => lineChiefs; set => lineChiefs = value; }
+        public List<LineChief> LineChiefs { get; set; }
         public Square()
         {
-            this.lineChiefs = new List<LineChief>();
-            this.waiters = new List<Waiter>();
-            this.lines = new List<Line>();
-        //    for (int i = 0; i < Param.WAITER_BY_SQUARE; i++)
-        //        this.waiters.Add(new Waiter());
+            this.LineChiefs = new List<LineChief>();
+            this.Lines = new List<Line>();
         }
 
-        public Square(List<Waiter> waiters, List<Line> lines)
+        public Square(List<Line> lines)
         {
-            this.waiters = waiters;
-            this.lines = lines;
-            //    for (int i = 0; i < Param.WAITER_BY_SQUARE; i++)
-            //        this.waiters.Add(new Waiter());
+            this.Lines = lines;
         }
 
     }

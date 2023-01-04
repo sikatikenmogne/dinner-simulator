@@ -13,7 +13,7 @@ namespace DinnerSimulator.DiningRoom.Model.Factory
     {
         public static int MaxCustomersCount { get; set; }
         public int DefaultCustomersCountPerGroup { get; set; }
-        public static int CustomerArrivalRythm { get; set; } = 1;
+        public static int CustomersArrivalRythm { get; set; } = 1;
 
         public CustomersFactory(int maxCustomersCount, int defaultCustomersCountPerGroup)
         {
@@ -21,15 +21,20 @@ namespace DinnerSimulator.DiningRoom.Model.Factory
             DefaultCustomersCountPerGroup = defaultCustomersCountPerGroup;
         }
 
-        public CustomersFactory(int maxCustomersCount, int defaultCustomersCountPerGroup, int customerArrivalRythm)
+        public CustomersFactory(int maxCustomersCount, int defaultCustomersCountPerGroup, int customersArrivalRythm)
         {
             MaxCustomersCount = maxCustomersCount;
             DefaultCustomersCountPerGroup = defaultCustomersCountPerGroup;
-            CustomerArrivalRythm = customerArrivalRythm;
+            CustomersArrivalRythm = customersArrivalRythm;
         }
 
         public override CustomerGroup CreateCustomers(int nbCustomers)
         {
+            if(nbCustomers == 0)
+            {
+                Random rnd = new Random();
+                nbCustomers = rnd.Next(1, 11);
+            }
             return new CustomerGroup(nbCustomers, new RandomOrderStrategy());
         }
     }

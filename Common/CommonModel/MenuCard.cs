@@ -4,58 +4,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using DinnerSimulator.Common.Model;
-using DinnerSimulator.Common.Model.Move;
 
 namespace DinnerSimulator.Common.Model
 {
-    public class MenuCard : Equipment, IPosition
+    public class MenuCard : Equipment
     {
-        private DateTime date;
-        private Dictionary<string, List<Recipe>> menu;
-        private int posX;
-        private int posY;
-
-        public MenuCard(Dictionary<string, List<Recipe>> menu, DateTime date)
-        {
-            this.menu = menu;
-            this.date = date;
-            this.State = EquipmentState.Available;
-        }
-        public MenuCard(Dictionary<string, List<Recipe>> menu)
-        {
-            this.menu = menu;
-            this.State = EquipmentState.Available;
-        }
         public MenuCard()
         {
 
         }
-        public int PosX
+        public MenuCard(Dictionary<string, List<Recipe>> menu, DateTime date)
         {
-            get
-            {
-                return posX;
-            }
-            set
-            {
-                posX = value >= 0 ? value : 0;
-            }
+            this.Menu = menu;
+            this.Date = date;
+            this.State = EquipmentState.Available;
         }
-
-        public int PosY
+        public MenuCard(Dictionary<string, List<Recipe>> menu)
         {
-            get
-            {
-                return posY;
-            }
-            set
-            {
-                posY = value >= 0 ? value : 0;
-            }
+            this.Menu = menu;
+            this.State = EquipmentState.Available;
         }
         public Dictionary<string, List<Recipe>> Menu { get; set; }
-        public DateTime Date { get => date; set => date = value; }
+        public DateTime Date { get; set; }
+
     }
 
 }

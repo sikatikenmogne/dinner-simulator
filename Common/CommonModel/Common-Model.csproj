@@ -43,9 +43,6 @@
   <ItemGroup>
     <Compile Include="Equipment.cs" />
     <Compile Include="MenuCard.cs" />
-    <Compile Include="Move\IMove.cs" />
-    <Compile Include="Move\IPosition.cs" />
-    <Compile Include="Move\Position.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Recipe.cs" />
