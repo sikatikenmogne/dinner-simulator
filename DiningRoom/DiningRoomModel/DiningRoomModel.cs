@@ -44,46 +44,9 @@ namespace DinnerSimulator.DiningRoom.Model
 
         public static int nbBreadBasketSetting;
 
-        public DiningRoomModel()
-        {
-            Dictionary<string, List<Recipe>> menu = new Dictionary<string, List<Recipe>>();
+        private int waiterCustomerCount;
 
-            menu.Add("Entry", new List<Recipe>() { new Recipe(RecipeType.Entry, "Feuillete de crabe", 4, 1000), new Recipe(RecipeType.Entry, "Oeufs cocotte", 4, 200) });
-            menu.Add("Dish", new List<Recipe>() { new Recipe(RecipeType.Dish, "Bouillinade anguilles ou poissons", 4, 345), new Recipe(RecipeType.Dish, "Boles de picoulats", 25, 560) });
-            menu.Add("Dessert", new List<Recipe>() { new Recipe(RecipeType.Dessert, "Tiramisu", 4, 1200), new Recipe(RecipeType.Dessert, "Creme brule", 3, 450) });
-
-            MenuCard = new MenuCard();
-
-            menuCard.Menu = menu;
-
-            HotelMaster = new HotelMaster();
-
-            Squares = new List<Square>();
-
-            Squares.Add(new Square());
-
-            MenuCards = new Queue<MenuCard>();
-
-            for (int i = 0; i < 40; i++)
-            {
-                MenuCard mCard = new MenuCard();
-                mCard.Menu = menu;
-                MenuCards.Enqueue(mCard);
-            }
-
-            Squares[0].Lines.Add(new Line(4, 6));
-
-            Squares[0].LineChiefs.Add(new LineChief());
-
-
-            for (int i = 0; i < 40; i++)
-            {
-                BreadBasket basketOfBread = new BreadBasket();
-                BreadBaskets.Enqueue(basketOfBread);
-            }
-
-        }
-        public DiningRoomModel(int nbSquares = 2, int nbLines = 2, int nbTablesPerLine = 10, int nbSeatsPerTable = 0, int nbLineChiefs = 1, int nbWaiters = 2, int nbMenuCard = 40,int nbBreadBasket = 40, int nbBreadBasketToSet = 2, int nbBottleOfWater = 40, int nbBottleOfWaterToSet = 2, Dictionary<string, List<Recipe>> menu = null)
+        public DiningRoomModel(int nbSquares = 2, int nbLines = 2, int nbTablesPerLine = 10, int nbSeatsPerTable = 0, int nbLineChiefs = 1, int nbWaiters = 2, int nbMenuCard = 40,int waiterCustomerCount = 6, int nbBreadBasket = 40, int nbBreadBasketSetting = 2, int nbBottleOfWater = 40, int nbBottleOfWaterSetting = 2, Dictionary<string, List<Recipe>> menu = null)
         {
             HotelMaster = new HotelMaster();
 
@@ -141,10 +104,11 @@ namespace DinnerSimulator.DiningRoom.Model
             for (int i = 0; i < nbBottleOfWater; i++)
                 BottleOfWaters.Enqueue(new BottleOfWater());
 
-            nbBottleOfWaterSetting = nbBottleOfWaterToSet;
+            DiningRoomModel.nbBottleOfWaterSetting = nbBottleOfWaterSetting;
 
-            nbBreadBasketSetting = nbBreadBasketToSet;
+            DiningRoomModel.nbBreadBasketSetting = nbBreadBasketSetting;
 
+            this.waiterCustomerCount = waiterCustomerCount;
         }
 
 
@@ -240,7 +204,7 @@ namespace DinnerSimulator.DiningRoom.Model
                         } while (waiter == null);
 
                         waiter.Available = false;
-                        if (DiningRoomModel.Squares[tablePosition[0]].Lines[tablePosition[1]].Tables[tablePosition[2]].Group.Count >= 6)
+                        if (DiningRoomModel.Squares[tablePosition[0]].Lines[tablePosition[1]].Tables[tablePosition[2]].Group.Count >= waiterCustomerCount)
                         {
                             waiter.SetBreadBasketOnTable(tablePosition, this.BreadBaskets, DiningRoomModel.nbBreadBasketSetting);
                             Console.WriteLine($"======= {DiningRoomModel.nbBreadBasketSetting} Corbeilles de pain dépossé=======");
