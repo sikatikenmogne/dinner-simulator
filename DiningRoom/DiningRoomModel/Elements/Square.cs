@@ -9,15 +9,14 @@ namespace DinnerSimulator.DiningRoom.Model.Elements
         public List<Line> Lines { get; set; }
 
         public List<LineChief> LineChiefs { get; set; }
+
+        public List<Waiter> Waiters { get; set; }
+
         public Square()
         {
             this.LineChiefs = new List<LineChief>();
             this.Lines = new List<Line>();
-        }
-
-        public Square(List<Line> lines)
-        {
-            this.Lines = lines;
+            this.Waiters = new List<Waiter>();
         }
 
     }

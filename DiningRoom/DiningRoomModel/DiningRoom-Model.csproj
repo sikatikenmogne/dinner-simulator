@@ -50,7 +50,11 @@
     <Compile Include="Actors\CustomerStateEnum.cs" />
     <Compile Include="Actors\HotelMaster.cs" />
     <Compile Include="Actors\LineChief.cs" />
+    <Compile Include="Actors\Waiter.cs" />
     <Compile Include="DiningRoomModel.cs" />
+    <Compile Include="Elements\BottleOfWater.cs" />
+    <Compile Include="Elements\BreadBasket.cs" />
+    <Compile Include="Elements\IItem.cs" />
     <Compile Include="Elements\Line.cs" />
     <Compile Include="Elements\Square.cs" />
     <Compile Include="Elements\Table.cs" />

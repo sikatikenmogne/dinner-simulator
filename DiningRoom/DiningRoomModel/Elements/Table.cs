@@ -1,5 +1,7 @@
 ﻿using DinnerSimulator.Common.Model;
 using DinnerSimulator.DiningRoom.Model.Actors;
+using DinnerSimulator.DiningRoom.Model.Actors.Elements;
+using System.Collections.Generic;
 
 namespace DinnerSimulator.DiningRoom.Model.Elements
 {
@@ -9,10 +11,12 @@ namespace DinnerSimulator.DiningRoom.Model.Elements
         {
             this.NbPlaces = nbPlaces;
             this.State = EquipmentState.Available;
+            this.Items = new Queue<IItem>();
         }
 
         public int NbPlaces { get; set; }
         public CustomerGroup Group { get; set; }
         public MenuCard MenuCard { get; set; }
+        public Queue<IItem> Items { get; set; }
     }
 }

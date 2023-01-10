@@ -1,5 +1,6 @@
 ﻿using DinnerSimulator.Common.Model;
 using DinnerSimulator.DiningRoom.Model.Actors;
+using DinnerSimulator.DiningRoom.Model.Actors.Elements;
 using DinnerSimulator.DiningRoom.Model.Elements;
 using DinnerSimulator.DiningRoom.Model.Factory;
 using System;
@@ -19,7 +20,10 @@ namespace DinnerSimulator.DiningRoom.Model
         public static Queue<MenuCard> MenuCards { get; set; }
         public MenuCard MenuCard { get => menuCard; set => menuCard = value; }
         public Dictionary<string, List<Recipe>> Menu { get; set; }
-        public Queue<Order> OrderList { get; set; } = new Queue<Order>();
+        public Queue<Order> OrderList { get; set; }
+        
+        public Queue<BreadBasket> BreadBaskets { get; set; }
+        public Queue<BottleOfWater> BottleOfWaters { get; set; }
 
 
         static int costomerCount = 0;
@@ -36,7 +40,9 @@ namespace DinnerSimulator.DiningRoom.Model
 
         static bool stillordering = true;
 
+        public static int nbBottleOfWaterSetting;
 
+        public static int nbBreadBasketSetting;
 
         public DiningRoomModel()
         {
@@ -69,12 +75,21 @@ namespace DinnerSimulator.DiningRoom.Model
 
             Squares[0].LineChiefs.Add(new LineChief());
 
+
+            for (int i = 0; i < 40; i++)
+            {
+                BreadBasket basketOfBread = new BreadBasket();
+                BreadBaskets.Enqueue(basketOfBread);
+            }
+
         }
-        public DiningRoomModel(int nbSquares = 2, int nbLines = 2, int nbTablesPerLine = 10, int nbSeatsPerTable = 0, int nbLineChiefs = 1, int nbWaiters = 2, int nbRoomClerks = 1, int nbMenuCard = 40, Dictionary<string, List<Recipe>> menu = null)
+        public DiningRoomModel(int nbSquares = 2, int nbLines = 2, int nbTablesPerLine = 10, int nbSeatsPerTable = 0, int nbLineChiefs = 1, int nbWaiters = 2, int nbMenuCard = 40,int nbBreadBasket = 40, int nbBreadBasketToSet = 2, int nbBottleOfWater = 40, int nbBottleOfWaterToSet = 2, Dictionary<string, List<Recipe>> menu = null)
         {
             HotelMaster = new HotelMaster();
 
             Squares = new List<Square>();
+
+            OrderList = new Queue<Order>();
 
             for (int i = 0; i < nbSquares; i++)
                 Squares.Add(new Square());
@@ -103,6 +118,8 @@ namespace DinnerSimulator.DiningRoom.Model
                 for (int j = 0; j < nbLineChiefs; j++)
                     Squares[i].LineChiefs.Add(new LineChief());
 
+                for (int k = 0; k < nbWaiters; k++)
+                    Squares[k].Waiters.Add(new Waiter());
             }
 
             MenuCards = new Queue<MenuCard>();
@@ -112,6 +129,22 @@ namespace DinnerSimulator.DiningRoom.Model
                 menuCard.Menu = menu;
                 MenuCards.Enqueue(menuCard);
             }
+
+
+            BreadBaskets = new Queue<BreadBasket>();
+
+            BottleOfWaters = new Queue<BottleOfWater>();
+
+            for (int i = 0; i < nbBreadBasket; i++)
+                BreadBaskets.Enqueue(new BreadBasket());
+
+            for (int i = 0; i < nbBottleOfWater; i++)
+                BottleOfWaters.Enqueue(new BottleOfWater());
+
+            nbBottleOfWaterSetting = nbBottleOfWaterToSet;
+
+            nbBreadBasketSetting = nbBreadBasketToSet;
+
         }
 
 
@@ -175,36 +208,49 @@ namespace DinnerSimulator.DiningRoom.Model
                         customers.CustomerState = CustomerStateEnum.WaitLineChief;
 
                         LineChief lineChief = null;
-
+                        
                         do
                         {
                             lineChief = DiningRoomModel.GetAviableLineChief(tablePosition[0]);
                         } while (lineChief == null);
 
-                        if (lineChief != null)
+                        Waiter waiter = null;
+
+                        lineChief.Available = false;
+
+                        Console.WriteLine("Chef de rang: Oui");
+
+                        Console.WriteLine("Chef de rang: Si vous voulez bien me suivre.");
+
+                        lineChief.InstallCustomers(customers, tablePosition);
+                        Console.WriteLine("=========Clients installé=========");
+
+                        lineChief.SetMenuCardOnTable(DiningRoomModel.MenuCards, tablePosition);
+                        Console.WriteLine("=======Carte de menu deposée=======");
+
+                        lineChief.Available = true;
+
+                        CustomersOrder(customers);
+
+                        orderQueue.Enqueue(customers);
+
+                        do
                         {
-                            lineChief.Available = false;
+                            waiter = DiningRoomModel.GetAviableWaiter(tablePosition[0]);
+                        } while (waiter == null);
 
-                            Console.WriteLine("Chef de rang: Oui");
+                        waiter.Available = false;
+                        if (DiningRoomModel.Squares[tablePosition[0]].Lines[tablePosition[1]].Tables[tablePosition[2]].Group.Count >= 6)
+                        {
+                            waiter.SetBreadBasketOnTable(tablePosition, this.BreadBaskets, DiningRoomModel.nbBreadBasketSetting);
+                            Console.WriteLine($"======= {DiningRoomModel.nbBreadBasketSetting} Corbeilles de pain dépossé=======");
 
-                            Console.WriteLine("Chef de rang: Si vous voulez bien me suivre.");
-
-                            lineChief.InstallCustomers(customers, tablePosition);
-                            Console.WriteLine("=========Clients installé=========");
-
-                            lineChief.SetMenuCardOnTable(DiningRoomModel.MenuCards, tablePosition);
-                            Console.WriteLine("=======Carte de menu deposée=======");
-
-                            lineChief.Available = true;
-
-                            CustomersOrder(customers);
-
-
-
-                            orderQueue.Enqueue(customers);
+                            waiter.SetBottleOfWaterOnTable(tablePosition, this.BottleOfWaters, DiningRoomModel.nbBottleOfWaterSetting);
+                            Console.WriteLine($"======= {DiningRoomModel.nbBreadBasketSetting} Bouteilles d'eau dépossé=======");
                         }
-
-
+                        waiter.Available = true;
+               
+                        
                     }
                     else
                         Console.WriteLine("Error: : no line chief aviable");
@@ -288,6 +334,17 @@ namespace DinnerSimulator.DiningRoom.Model
             {
                 if (lineChief.Available)
                     return lineChief;
+            }
+
+            return null;
+        }
+
+        public static Waiter GetAviableWaiter(int squareId)
+        {
+            foreach (Waiter waiter in DiningRoomModel.Squares[squareId].Waiters)
+            {
+                if (waiter.Available)
+                    return waiter;
             }
 
             return null;
