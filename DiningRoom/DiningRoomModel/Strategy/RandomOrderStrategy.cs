@@ -17,52 +17,52 @@ namespace DinnerSimulator.DiningRoom.Model.Strategy
 
             Random rand = new Random();
 
-            int choiceRange = System.Enum.GetNames(typeof(CustomerChoiceMenuEnum)).Length;
+            int choiceRange = System.Enum.GetNames(typeof(CustomerChoiceMenu)).Length;
             
             int MenuChoice = rand.Next(0, choiceRange);
 
-            CustomerChoiceMenuEnum customerChoiceMenu = (CustomerChoiceMenuEnum)MenuChoice;
+            CustomerChoiceMenu customerChoiceMenu = (CustomerChoiceMenu)MenuChoice;
 
             string[] keyList = null;
             Order order = new Order();
             //order.orderLine = new Dictionary<Recipe, int>();
             switch (customerChoiceMenu)
             {
-                case CustomerChoiceMenuEnum.all:
+                case CustomerChoiceMenu.all:
 
                     keyList = new string[3] { "Entry", "Dish", "Dessert" };
                             
                     break;
 
-                case CustomerChoiceMenuEnum.dishAndDessert:
+                case CustomerChoiceMenu.dishAndDessert:
 
                     keyList = new string[2] { "Dish", "Dessert" };
 
                     break;
-                case CustomerChoiceMenuEnum.entryAndDish:
+                case CustomerChoiceMenu.entryAndDish:
 
                     keyList = new string[2] { "Entry", "Dish" };
 
 
                     break;
-                case CustomerChoiceMenuEnum.entryAndDessert:
+                case CustomerChoiceMenu.entryAndDessert:
 
                     keyList = new string[2] { "Entry", "Dessert" };
 
 
                     break;
-                case CustomerChoiceMenuEnum.dish:
+                case CustomerChoiceMenu.dish:
 
                     keyList = new string[1] { "Dish" };
 
 
                     break;
-                case CustomerChoiceMenuEnum.entry:
+                case CustomerChoiceMenu.entry:
 
                     keyList = new string[1] { "Entry" };
 
                     break;
-                case CustomerChoiceMenuEnum.dessert:
+                case CustomerChoiceMenu.dessert:
 
                     keyList = new string[1] { "Dessert" };
 

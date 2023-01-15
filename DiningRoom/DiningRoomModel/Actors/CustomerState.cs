@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DinnerSimulator.DiningRoom.Model.Actors
 {
-    public enum CustomerStateEnum
+    public enum CustomerState
     {
         WaitTableAttribution,
         WaitLineChief,

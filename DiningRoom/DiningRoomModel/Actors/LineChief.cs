@@ -18,7 +18,7 @@ namespace DinnerSimulator.DiningRoom.Model.Actors
 
             DiningRoomModel.Squares[tablePosition[0]].Lines[tablePosition[1]].Tables[tablePosition[2]].State = EquipmentState.InUse;
             DiningRoomModel.Squares[tablePosition[0]].Lines[tablePosition[1]].Tables[tablePosition[2]].Group = customer;
-            customer.CustomerState = CustomerStateEnum.Installed;
+            customer.CustomerState = CustomerState.Installed;
             customer.TablePosition = tablePosition;
         }
 

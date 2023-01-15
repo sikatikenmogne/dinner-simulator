@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram MajorVersion="1" MinorVersion="1">
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
   <Class Name="DinnerSimulator.DiningRoom.Model.Actors.Customer" Collapsed="true">
     <Position X="3" Y="0.5" Width="1.5" />
     <TypeIdentifier>
@@ -29,48 +29,33 @@
       <FileName>Actors\LineChief.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="DinnerSimulator.DiningRoom.Model.Actors.RoomClerk" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="3" Y="2.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Actors\RoomClerk.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="DinnerSimulator.DiningRoom.Model.Actors.Waiter" Collapsed="true">
-    <Position X="8.25" Y="2.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Actors\Waiter.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="DinnerSimulator.DiningRoom.Model.DiningRoomModel" Collapsed="true">
     <Position X="6.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>IIAAAQCAAAAEIAAAIQQkAMgAjgBMAAEIBCEUAQIBEAA=</HashCode>
+      <HashCode>IIAACAAAAAAEQAAAIQQkAIAAjgAIAAEIBAEEAQIAkkQ=</HashCode>
       <FileName>DiningRoomModel.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="DinnerSimulator.DiningRoom.Model.Elements.Line" Collapsed="true">
     <Position X="3" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Elements\Line.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="DinnerSimulator.DiningRoom.Model.Elements.Square" Collapsed="true">
     <Position X="4.75" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAEAAAAJAAAACAAEAAAABAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAEAAAAAAAAACAAEAAAAAAAA=</HashCode>
       <FileName>Elements\Square.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="DinnerSimulator.DiningRoom.Model.Elements.Table" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="6.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>QAAgAEAAAAAAAAABAAAEwQAABAAAAACACAAAwAgAIAA=</HashCode>
+      <HashCode>AAAAAEAAAAAACAAAAAAAAAAABAAAAAAAAAAAAAAAIAA=</HashCode>
       <FileName>Elements\Table.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="DinnerSimulator.DiningRoom.Model.Factory.AbstractCustomersFactory">
     <Position X="0.5" Y="0.5" Width="1.5" />
@@ -115,11 +100,11 @@
       <FileName>Strategy\IOrderStrategy.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Enum Name="DinnerSimulator.DiningRoom.Model.Actors.CustomerStateEnum" Collapsed="true">
+  <Enum Name="DinnerSimulator.DiningRoom.Model.Actors.CustomerState" Collapsed="true">
     <Position X="4.75" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>EQgAAEAAAAAABAAAAAQAABAAAAEAEACAgAAAAAAAAAA=</HashCode>
-      <FileName>Actors\CustomerStateEnum.cs</FileName>
+      <FileName>Actors\CustomerState.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Font Name="Segoe UI" Size="9" />

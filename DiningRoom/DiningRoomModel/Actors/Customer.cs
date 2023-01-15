@@ -8,7 +8,7 @@ namespace DinnerSimulator.DiningRoom.Model.Actors
 {
     class Customer
     {
-        private CustomerChoiceMenuEnum choiceMenu;
+        private CustomerChoiceMenu choiceMenu;
         private List<string> preferenceList;
         private int presenceTime;
     }

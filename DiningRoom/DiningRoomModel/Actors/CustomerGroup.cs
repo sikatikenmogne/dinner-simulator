@@ -17,11 +17,11 @@ namespace DinnerSimulator.DiningRoom.Model.Actors
 
         public List<string> PreferenceList { get; set; }
 
-        public CustomerChoiceMenuEnum ChoiceMenu { get; set; }
+        public CustomerChoiceMenu ChoiceMenu { get; set; }
 
         public List<Order> Orders { get; set; }
 
-        public CustomerStateEnum CustomerState { get; set; }
+        public CustomerState CustomerState { get; set; }
 
         public int Count { get; set; }
 
@@ -29,12 +29,12 @@ namespace DinnerSimulator.DiningRoom.Model.Actors
 
         public CustomerGroup()
         {
-            this.CustomerState = CustomerStateEnum.WaitTableAttribution;
+            this.CustomerState = CustomerState.WaitTableAttribution;
             this.Count = 1;
         }
         public CustomerGroup(int count) {
             this.Count = count;
-            this.CustomerState = CustomerStateEnum.WaitTableAttribution;
+            this.CustomerState = CustomerState.WaitTableAttribution;
         }
 
         public CustomerGroup(int count, IOrderStrategy customerStrategy)

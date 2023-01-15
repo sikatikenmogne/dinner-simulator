@@ -1,6 +1,5 @@
 ﻿using DinnerSimulator.Common.Model;
 using DinnerSimulator.DiningRoom.Model.Actors;
-using DinnerSimulator.DiningRoom.Model.Actors.Elements;
 using System.Collections.Generic;
 
 namespace DinnerSimulator.DiningRoom.Model.Elements

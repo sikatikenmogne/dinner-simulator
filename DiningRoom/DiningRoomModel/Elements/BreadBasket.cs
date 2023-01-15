@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DinnerSimulator.DiningRoom.Model.Actors.Elements
+namespace DinnerSimulator.DiningRoom.Model.Elements
 {
     public class BreadBasket : IItem
     {

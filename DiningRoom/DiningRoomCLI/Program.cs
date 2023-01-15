@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DinnerSimulator.DiningRoom.Model.Elements
+namespace DinnerSimulator.DiningRoom.CLI
 {
-    public interface IItem
+    public class Program
     {
-        string name { get; set; }
     }
 }

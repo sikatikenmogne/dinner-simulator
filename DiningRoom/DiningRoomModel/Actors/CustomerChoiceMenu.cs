@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DinnerSimulator.DiningRoom.Model.Actors
 {
-    public enum CustomerChoiceMenuEnum
+    public enum CustomerChoiceMenu
     {
         entry,
         dish,

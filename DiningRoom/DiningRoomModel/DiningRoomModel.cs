@@ -1,6 +1,5 @@
 ﻿using DinnerSimulator.Common.Model;
 using DinnerSimulator.DiningRoom.Model.Actors;
-using DinnerSimulator.DiningRoom.Model.Actors.Elements;
 using DinnerSimulator.DiningRoom.Model.Elements;
 using DinnerSimulator.DiningRoom.Model.Factory;
 using System;
@@ -169,7 +168,7 @@ namespace DinnerSimulator.DiningRoom.Model
                     Console.WriteLine("==== ===");
                     if (tablePosition != null)
                     {
-                        customers.CustomerState = CustomerStateEnum.WaitLineChief;
+                        customers.CustomerState = CustomerState.WaitLineChief;
 
                         LineChief lineChief = null;
                         
@@ -228,7 +227,7 @@ namespace DinnerSimulator.DiningRoom.Model
         private void CustomersOrder(CustomerGroup customers)
         {
 
-            customers.CustomerState = CustomerStateEnum.Ordering;
+            customers.CustomerState = CustomerState.Ordering;
             Console.WriteLine("=========Client n_" + costomerCount + " commande=======");
 
             orderThreads.Add(new Thread(() =>
@@ -241,7 +240,7 @@ namespace DinnerSimulator.DiningRoom.Model
                 {
                     OrderList.Enqueue(customers.Order(DiningRoomModel.Squares[tablePosition[0]].Lines[tablePosition[1]].Tables[tablePosition[2]].MenuCard));
 
-                    customers.CustomerState = CustomerStateEnum.Ordered;
+                    customers.CustomerState = CustomerState.Ordered;
                     Thread thread = Thread.CurrentThread;
                     Console.WriteLine("=========" + thread.Name + " prise========");
                 }

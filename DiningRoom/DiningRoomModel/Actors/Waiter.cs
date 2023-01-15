@@ -1,11 +1,11 @@
-﻿using DinnerSimulator.DiningRoom.Model.Actors.Elements;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DinnerSimulator.DiningRoom.Model.Elements;
 
-namespace DinnerSimulator.DiningRoom.Model
+namespace DinnerSimulator.DiningRoom.Model.Actors
 {
     public class Waiter
     {

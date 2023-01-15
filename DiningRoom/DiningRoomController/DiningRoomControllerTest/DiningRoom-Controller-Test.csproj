@@ -5,11 +5,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2F1D658E-6F85-4F31-BB37-3F46FF4E060E}</ProjectGuid>
+    <ProjectGuid>{9F2881FD-6CB7-413A-817C-B4A007ECC008}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DiningRoomModelTest</RootNamespace>
-    <AssemblyName>DiningRoomModelTest</AssemblyName>
+    <RootNamespace>DinnerSimulator.DiningRoom.Controller.Test</RootNamespace>
+    <AssemblyName>DiningRoomControllerTest</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
